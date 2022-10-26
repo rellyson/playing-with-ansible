@@ -1,0 +1,31 @@
+---
+- name: Nginx simple setup
+  hosts: vms
+  become: yes
+  remote_user: vagrant
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        update_cache: yes
+        state: present
+        name:
+          - nginx
+      notify: Restart nginx systemd service
+
+    - name: Enable nginx service
+      ansible.builtin.service:
+        enabled: yes
+        name: nginx
+
+    - name: Copying index page to nginx folder
+      ansible.builtin.copy:
+        src: ../../assets/index.html
+        dest: /var/www/html/index.html
+        mode: 0644
+  
+  handlers:
+    - name: Restart nginx systemd service
+      ansible.builtin.service:
+        state: restarted
+        sleep: 3
+        name: nginx
