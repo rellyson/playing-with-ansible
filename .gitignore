@@ -1,0 +1,5 @@
+# ignore generated ssh config fiels
+**/*-ssh
+
+# ignore vagrant machine assets
+**/.vagrant

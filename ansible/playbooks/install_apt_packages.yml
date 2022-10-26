@@ -1,0 +1,14 @@
+---
+- name: Install apt packages
+  hosts: vms
+  become: yes
+  remote_user: vagrant
+  tasks:
+    - name: Run apt
+      ansible.builtin.apt:
+        update_cache: yes
+        state: "present"
+        name:
+          - build-essential
+          - git
+          - libssh-dev
