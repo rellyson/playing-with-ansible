@@ -1,8 +1,6 @@
 # Playing with Ansible
 
-<p align="center">
-    <img src="https://avatars.githubusercontent.com/u/1507452?s=200&v=4">
-<p>
+![ansible-logo](https://tomaustin.xyz/wp-content/uploads/2021/03/ansible-1456397742246.png)
 
 ## Machine
 
@@ -12,7 +10,7 @@ A `Vagrant` machine config can be found under `vms/` directory. You can set a vm
 
 ``` shell
 ## Ping all hosts
-# ansible -i hosts all -m ping
+$ ansible -i hosts all -m ping
 
 ## Syntax for playbook executions
 $ ansible-playbook -i hosts /path/to/playbook
